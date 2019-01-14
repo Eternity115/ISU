@@ -1,26 +1,26 @@
 
 abstract public class PPlant {
     protected double cost;
-    protected int type; //number given
+    protected Type type; //number given
     protected int growth; //time in days
-    static int time;
-    static double money;
+    private static int time;
+    private static double money;
     
-    public PPlant(){
-        //carrot
-        type = 1;
-        cost=5;
-        growth = 5; 
-    }
-    
-    public PPlant(int t, double c, int gr){
-        type = t;
+    public PPlant(Type type, double c, int gr){
+        type = type;
         cost=c;
         growth = gr;
     }
     
+    abstract void grow();
     
-    
+    /*
+    Exclusive methods 
+    coldSpell();
+    disSpell();
+    bugSpell();
+    */
+
     
     public final void plant(){
         //ADD PLANT TO LIST
