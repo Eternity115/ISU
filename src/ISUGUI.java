@@ -39,26 +39,30 @@ public class ISUGUI extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnuexit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        mnupot = new javax.swing.JMenuItem();
+        mnuspot = new javax.swing.JMenuItem();
+        mnucorn = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        mnupep = new javax.swing.JMenuItem();
+        mnujpep = new javax.swing.JMenuItem();
+        mnusell = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        mnuhar = new javax.swing.JMenuItem();
+        mnuwat = new javax.swing.JMenuItem();
+        mnufer = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        mnust = new javax.swing.JMenuItem();
+        mnuss = new javax.swing.JMenuItem();
+        mnusc = new javax.swing.JMenuItem();
+        mnuall = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -208,9 +212,14 @@ public class ISUGUI extends javax.swing.JFrame {
         jMenu1.setText("File");
         jMenu1.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
 
-        jMenuItem1.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem1.setText("Exit");
-        jMenu1.add(jMenuItem1);
+        mnuexit.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
+        mnuexit.setText("Exit");
+        mnuexit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuexitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuexit);
 
         jMenuBar1.add(jMenu1);
 
@@ -220,23 +229,23 @@ public class ISUGUI extends javax.swing.JFrame {
         jMenu5.setText("Tuber");
         jMenu5.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
 
-        jMenuItem5.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem5.setText("Potato");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        mnupot.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
+        mnupot.setText("Potato");
+        mnupot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                mnupotActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem5);
+        jMenu5.add(mnupot);
 
-        jMenuItem6.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem6.setText("Sweet Potato");
-        jMenu5.add(jMenuItem6);
+        mnuspot.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
+        mnuspot.setText("Sweet Potato");
+        jMenu5.add(mnuspot);
 
         jMenu2.add(jMenu5);
 
-        jMenu6.setText("Stalk");
-        jMenu6.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
+        mnucorn.setText("Stalk");
+        mnucorn.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
 
         jMenuItem3.setText("Corn");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -244,71 +253,62 @@ public class ISUGUI extends javax.swing.JFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem3);
+        mnucorn.add(jMenuItem3);
 
-        jMenu2.add(jMenu6);
+        jMenu2.add(mnucorn);
 
         jMenu7.setText("Capsica");
         jMenu7.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
 
-        jMenuItem7.setText("Pepper");
-        jMenu7.add(jMenuItem7);
+        mnupep.setText("Pepper");
+        jMenu7.add(mnupep);
 
-        jMenuItem9.setText("Jalapeño");
-        jMenu7.add(jMenuItem9);
+        mnujpep.setText("Jalapeño");
+        jMenu7.add(mnujpep);
 
         jMenu2.add(jMenu7);
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Care");
-        jMenu3.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        mnusell.setText("Care");
+        mnusell.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
 
         jMenuItem10.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         jMenuItem10.setText("Sell");
-        jMenu3.add(jMenuItem10);
+        mnusell.add(jMenuItem10);
 
-        jMenuItem11.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem11.setText("Harvest");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+        mnuhar.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
+        mnuhar.setText("Harvest");
+        mnuhar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
+                mnuharActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem11);
+        mnusell.add(mnuhar);
 
-        jMenuItem12.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem12.setText("Water");
-        jMenu3.add(jMenuItem12);
+        mnuwat.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
+        mnuwat.setText("Water");
+        mnusell.add(mnuwat);
 
-        jMenuItem8.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem8.setText("Fertilize");
-        jMenu3.add(jMenuItem8);
+        mnufer.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
+        mnufer.setText("Fertilize");
+        mnusell.add(mnufer);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(mnusell);
 
         jMenu4.setText("Food");
         jMenu4.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
 
         jMenuItem13.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem13.setText("Soup (Tomato, Carrot, Potato)                    |$50");
+        jMenuItem13.setText("Shepard's Pie (Corn, Potato)                                                       |$40");
         jMenu4.add(jMenuItem13);
 
-        jMenuItem14.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem14.setText("Carrot Cake (Carrots, Wheat)                      |$100");
-        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem14ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem14);
-
         jMenuItem15.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem15.setText("Salsa (Peppers, Tomatoes, Cucumber)   |$40");
+        jMenuItem15.setText("Salsa (Peppers, Jalapeño)                                                             |$50");
         jMenu4.add(jMenuItem15);
 
         jMenuItem16.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem16.setText("Pot Pie (Wheat, Carrot, Corn)                      |$100");
+        jMenuItem16.setText("Stew (Potato, Sweet Potato, Corn, Pepper, Jalapeño)              |$100");
         jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem16ActionPerformed(evt);
@@ -317,6 +317,28 @@ public class ISUGUI extends javax.swing.JFrame {
         jMenu4.add(jMenuItem16);
 
         jMenuBar1.add(jMenu4);
+
+        jMenu3.setText("Sort");
+        jMenu3.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+
+        mnust.setText("Tuber");
+        jMenu3.add(mnust);
+
+        mnuss.setText("Stalk");
+        jMenu3.add(mnuss);
+
+        mnusc.setText("Capsica");
+        mnusc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuscActionPerformed(evt);
+            }
+        });
+        jMenu3.add(mnusc);
+
+        mnuall.setText("All");
+        jMenu3.add(mnuall);
+
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -354,25 +376,29 @@ public class ISUGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void mnupotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnupotActionPerformed
         
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_mnupotActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+    private void mnuharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuharActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
+    }//GEN-LAST:event_mnuharActionPerformed
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
-    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+    private void mnuexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuexitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_mnuexitActionPerformed
+
+    private void mnuscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuscActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem14ActionPerformed
+    }//GEN-LAST:event_mnuscActionPerformed
 
     /**
      * @param args the command line arguments
@@ -431,26 +457,30 @@ public class ISUGUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblmon;
+    private javax.swing.JMenuItem mnuall;
+    private javax.swing.JMenu mnucorn;
+    private javax.swing.JMenuItem mnuexit;
+    private javax.swing.JMenuItem mnufer;
+    private javax.swing.JMenuItem mnuhar;
+    private javax.swing.JMenuItem mnujpep;
+    private javax.swing.JMenuItem mnupep;
+    private javax.swing.JMenuItem mnupot;
+    private javax.swing.JMenuItem mnusc;
+    private javax.swing.JMenu mnusell;
+    private javax.swing.JMenuItem mnuspot;
+    private javax.swing.JMenuItem mnuss;
+    private javax.swing.JMenuItem mnust;
+    private javax.swing.JMenuItem mnuwat;
     // End of variables declaration//GEN-END:variables
 }

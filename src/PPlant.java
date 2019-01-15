@@ -1,7 +1,7 @@
 
 abstract public class PPlant {
     protected double cost;
-    protected Type type; //number given
+    protected Type type; //Enum
     protected int growth; //time in days
     private static int time;
     private static double money;
@@ -10,6 +10,12 @@ abstract public class PPlant {
         type = type;
         cost=c;
         growth = gr;
+    }
+    public PPlant(){
+        //makes potato
+        type = Type.TUBER;
+        cost=5;
+        growth = 10;
     }
     
     abstract void grow();
@@ -27,7 +33,10 @@ abstract public class PPlant {
         time+=1;
     }
     
-    //***************ADD ANOTHER FINAL METHOD********************\\
+    public final int getGrowth(){
+        return growth;
+    }
+    
     
     public static int getTime(){
         return time;
@@ -45,6 +54,10 @@ abstract public class PPlant {
         return money+rev;
     }
     
+    public String toString(){
+        String str= "Status Update\n";
+        return str;
+    }
     
     
     
