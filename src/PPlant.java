@@ -4,7 +4,7 @@ abstract public class PPlant {
     protected Type type; //Enum
     protected int growth; //time in days
     private static int time;
-    private static double money;
+    private static double money=100;
     
     public PPlant(Type type, double c, int gr){
         type = type;
@@ -37,6 +37,10 @@ abstract public class PPlant {
         return growth;
     }
     
+    public final void age(){
+        growth = growth-1;
+    }
+    
     
     public static int getTime(){
         return time;
@@ -46,15 +50,20 @@ abstract public class PPlant {
         return money;
     }
     
-    public static double decrease(int mon){
-        return money-mon;
+    public double getCost(){
+        return cost;
     }
     
-    public static double increase(int rev){
-        return money+rev;
+    public static void decrease(double mon){
+        money = money-mon;
     }
     
-    public String toString(){
+    public static void increase(double rev){
+        
+        money = money+rev;
+    }
+    
+    public String Status(){
         String str= "Status Update\n";
         return str;
     }

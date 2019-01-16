@@ -14,8 +14,13 @@ public class SPTuber extends Tuber{
     }
     
     public String toString(){
-        String str= super.toString();
-        str+= "Plant Bonus: " + bonus;
+        String str="Sweet Potato";
+        return str;
+    }
+    
+    public String Status(){
+        String str= super.Status();
+        str+= "\nPlant Bonus: " + bonus;
         return str;
     }
     

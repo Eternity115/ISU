@@ -4,7 +4,7 @@ public class Capsica extends PPlant{
     protected Ability res;
     
     public Capsica() {
-        super(Type.CAPSICA, 5, 10);
+        super(Type.CAPSICA, 5, 5);
         res= Ability.BUG;
     }
     
@@ -19,10 +19,15 @@ public class Capsica extends PPlant{
     }
     
     public String toString(){
-        String str= super.toString();
+        String str="Pepper";
+        return str;
+    }
+    
+    public String Status(){
+        String str= super.Status();
         str+= "Type: " + Type.CAPSICA.getName();
-        str+= "Days Until Harvestable: " + (getGrowth()-age);
-        str+= "Resisentance Type: " + Ability.BUG.getName() ;
+        str+= "\nDays Until Harvestable: " + (getGrowth()-age);
+        str+= "\nResisentance Type: " + Ability.BUG.getName() ;
         return str;
     }
 }

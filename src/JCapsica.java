@@ -14,8 +14,13 @@ public class JCapsica extends Capsica{
     }
     
     public String toString(){
-        String str= super.toString();
-        str+= "Plant Bonus: " + bonus;
+        String str="Jalapeño";
+        return str;
+    }
+    
+    public String Status(){
+        String str= super.Status();
+        str+= "\nPlant Bonus: " + bonus;
         return str;
     }
     

@@ -4,7 +4,7 @@ public class Stalk extends PPlant{
     protected Ability res;
     
     public Stalk() {
-        super(Type.STALK, 5, 10);
+        super(Type.STALK, 8, 12);
         res= Ability.COLD;
     }
     
@@ -19,10 +19,15 @@ public class Stalk extends PPlant{
     }
     
     public String toString(){
-        String str= super.toString();
+        String str="Corn";
+        return str;
+    }
+    
+    public String Status(){
+        String str= super.Status();
         str+= "Type: " + Type.STALK.getName();
-        str+= "Days Until Harvestable: " + (getGrowth()-age);
-        str+= "Resisentance Type: " + Ability.DISEASE.getName();
+        str+= "\nDays Until Harvestable: " + (getGrowth()-age);
+        str+= "\nResisentance Type: " + Ability.DISEASE.getName();
         return str;
     }
 }

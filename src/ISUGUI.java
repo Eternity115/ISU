@@ -1,12 +1,13 @@
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 
 public class ISUGUI extends javax.swing.JFrame {
-    
-    ArrayList out = new ArrayList();
-    DefaultListModel Plantlist;
+    List<PPlant> bought = new ArrayList<>();
+    DefaultListModel<String> Plantlist = new DefaultListModel<>();
     
     public ISUGUI() {
         initComponents();
@@ -18,7 +19,7 @@ public class ISUGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        ListThing = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -37,6 +38,7 @@ public class ISUGUI extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        btnstat = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuexit = new javax.swing.JMenuItem();
@@ -44,13 +46,13 @@ public class ISUGUI extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         mnupot = new javax.swing.JMenuItem();
         mnuspot = new javax.swing.JMenuItem();
-        mnucorn = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mnustalk = new javax.swing.JMenu();
+        mnucorn = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         mnupep = new javax.swing.JMenuItem();
         mnujpep = new javax.swing.JMenuItem();
-        mnusell = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        mnucare = new javax.swing.JMenu();
+        mnusell = new javax.swing.JMenuItem();
         mnuhar = new javax.swing.JMenuItem();
         mnuwat = new javax.swing.JMenuItem();
         mnufer = new javax.swing.JMenuItem();
@@ -66,7 +68,7 @@ public class ISUGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(ListThing);
 
         jLabel1.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -82,7 +84,7 @@ public class ISUGUI extends javax.swing.JFrame {
 
         lblmon.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         lblmon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblmon.setText("$100");
+        lblmon.setText("$100.00");
 
         jLabel4.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -209,6 +211,14 @@ public class ISUGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnstat.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        btnstat.setText("Status");
+        btnstat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnstatActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("File");
         jMenu1.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
 
@@ -240,42 +250,62 @@ public class ISUGUI extends javax.swing.JFrame {
 
         mnuspot.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         mnuspot.setText("Sweet Potato");
+        mnuspot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuspotActionPerformed(evt);
+            }
+        });
         jMenu5.add(mnuspot);
 
         jMenu2.add(jMenu5);
 
-        mnucorn.setText("Stalk");
-        mnucorn.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
+        mnustalk.setText("Stalk");
+        mnustalk.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
 
-        jMenuItem3.setText("Corn");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        mnucorn.setText("Corn");
+        mnucorn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                mnucornActionPerformed(evt);
             }
         });
-        mnucorn.add(jMenuItem3);
+        mnustalk.add(mnucorn);
 
-        jMenu2.add(mnucorn);
+        jMenu2.add(mnustalk);
 
         jMenu7.setText("Capsica");
         jMenu7.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
 
         mnupep.setText("Pepper");
+        mnupep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnupepActionPerformed(evt);
+            }
+        });
         jMenu7.add(mnupep);
 
         mnujpep.setText("Jalapeño");
+        mnujpep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnujpepActionPerformed(evt);
+            }
+        });
         jMenu7.add(mnujpep);
 
         jMenu2.add(jMenu7);
 
         jMenuBar1.add(jMenu2);
 
-        mnusell.setText("Care");
-        mnusell.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        mnucare.setText("Care");
+        mnucare.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
 
-        jMenuItem10.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem10.setText("Sell");
-        mnusell.add(jMenuItem10);
+        mnusell.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
+        mnusell.setText("Sell");
+        mnusell.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnusellActionPerformed(evt);
+            }
+        });
+        mnucare.add(mnusell);
 
         mnuhar.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         mnuhar.setText("Harvest");
@@ -284,17 +314,17 @@ public class ISUGUI extends javax.swing.JFrame {
                 mnuharActionPerformed(evt);
             }
         });
-        mnusell.add(mnuhar);
+        mnucare.add(mnuhar);
 
         mnuwat.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         mnuwat.setText("Water");
-        mnusell.add(mnuwat);
+        mnucare.add(mnuwat);
 
         mnufer.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
         mnufer.setText("Fertilize");
-        mnusell.add(mnufer);
+        mnucare.add(mnufer);
 
-        jMenuBar1.add(mnusell);
+        jMenuBar1.add(mnucare);
 
         jMenu4.setText("Food");
         jMenu4.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
@@ -347,10 +377,15 @@ public class ISUGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(btnstat)))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -369,7 +404,9 @@ public class ISUGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnstat)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -377,12 +414,32 @@ public class ISUGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnupotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnupotActionPerformed
-        
+        //adds a new potato to list
+        PPlant temp = new Tuber();
+        if (temp.getMoney()<temp.getCost()){
+            JOptionPane.showMessageDialog(this, "You do not have enough money");
+            return;
+        }
+        Plantlist.addElement(temp.toString());
+        bought.add(temp);
+        ListThing.setModel(Plantlist);
+        temp.decrease(temp.getCost());
+        lblmon.setText(String.format("$%.2f",temp.getMoney()));
     }//GEN-LAST:event_mnupotActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    private void mnucornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnucornActionPerformed
+        //Adds a new corn to list
+        PPlant temp = new Stalk();
+        if (temp.getMoney()<temp.getCost()){
+            JOptionPane.showMessageDialog(this, "You do not have enough money");
+            return;
+        }
+        Plantlist.addElement(temp.toString());
+        bought.add(temp);
+        ListThing.setModel(Plantlist);
+        temp.decrease(temp.getCost());
+        lblmon.setText(String.format("$%.2f",temp.getMoney()));
+    }//GEN-LAST:event_mnucornActionPerformed
 
     private void mnuharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuharActionPerformed
         // TODO add your handling code here:
@@ -399,6 +456,68 @@ public class ISUGUI extends javax.swing.JFrame {
     private void mnuscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuscActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuscActionPerformed
+
+    private void mnuspotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuspotActionPerformed
+        //Adds a new Sweet Potato to list
+        PPlant temp = new SPTuber();
+        if (temp.getMoney()<temp.getCost()){
+            JOptionPane.showMessageDialog(this, "You do not have enough money");
+            return;
+        }
+        Plantlist.addElement(temp.toString());
+        bought.add(temp);
+        ListThing.setModel(Plantlist);
+        temp.decrease(temp.getCost());
+        lblmon.setText(String.format("$%.2f",temp.getMoney()));
+    }//GEN-LAST:event_mnuspotActionPerformed
+
+    private void mnupepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnupepActionPerformed
+        //Adds a new pepper to list
+        PPlant temp = new Capsica();
+        if (temp.getMoney()<temp.getCost()){
+            JOptionPane.showMessageDialog(this, "You do not have enough money");
+            return;
+        }
+        Plantlist.addElement(temp.toString());
+        bought.add(temp);
+        ListThing.setModel(Plantlist);
+        temp.decrease(temp.getCost());
+        lblmon.setText(String.format("$%.2f",temp.getMoney()));
+    }//GEN-LAST:event_mnupepActionPerformed
+
+    private void mnujpepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnujpepActionPerformed
+        //Adds a new jalapeño to list
+        PPlant temp = new JCapsica();
+        if (temp.getMoney()<temp.getCost()){
+            JOptionPane.showMessageDialog(this, "You do not have enough money");
+            return;
+        }
+        Plantlist.addElement(temp.toString());
+        bought.add(temp);
+        ListThing.setModel(Plantlist);
+        temp.decrease(temp.getCost());
+        lblmon.setText(String.format("$%.2f",temp.getMoney()));
+    }//GEN-LAST:event_mnujpepActionPerformed
+
+    private void btnstatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstatActionPerformed
+        int ss = ListThing.getSelectedIndex();
+        if (ss == -1) {
+            JOptionPane.showMessageDialog(this, "Select a plant to see status");
+            return;
+        }
+        String stats="";
+        stats = bought.get(ss).Status();
+        JOptionPane.showMessageDialog(this, stats);
+        
+    }//GEN-LAST:event_btnstatActionPerformed
+
+    private void mnusellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnusellActionPerformed
+        int sel = ListThing.getSelectedIndex();
+        if (sel == -1) {
+            JOptionPane.showMessageDialog(this, "Select a plant to sell");
+            return;
+        }
+    }//GEN-LAST:event_mnusellActionPerformed
 
     /**
      * @param args the command line arguments
@@ -436,6 +555,8 @@ public class ISUGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> ListThing;
+    private javax.swing.JButton btnstat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
@@ -451,7 +572,6 @@ public class ISUGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -459,17 +579,16 @@ public class ISUGUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblmon;
     private javax.swing.JMenuItem mnuall;
-    private javax.swing.JMenu mnucorn;
+    private javax.swing.JMenu mnucare;
+    private javax.swing.JMenuItem mnucorn;
     private javax.swing.JMenuItem mnuexit;
     private javax.swing.JMenuItem mnufer;
     private javax.swing.JMenuItem mnuhar;
@@ -477,10 +596,11 @@ public class ISUGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnupep;
     private javax.swing.JMenuItem mnupot;
     private javax.swing.JMenuItem mnusc;
-    private javax.swing.JMenu mnusell;
+    private javax.swing.JMenuItem mnusell;
     private javax.swing.JMenuItem mnuspot;
     private javax.swing.JMenuItem mnuss;
     private javax.swing.JMenuItem mnust;
+    private javax.swing.JMenu mnustalk;
     private javax.swing.JMenuItem mnuwat;
     // End of variables declaration//GEN-END:variables
 }
