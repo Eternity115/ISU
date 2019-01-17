@@ -1,10 +1,9 @@
 //Bell Pepper
 public class Capsica extends PPlant{
-    protected int age=0; //how many days you have had plant
     protected Ability res;
     
     public Capsica() {
-        super(Type.CAPSICA, 5, 5);
+        super(Type.CAPSICA, 8, 12);
         res= Ability.BUG;
     }
     
@@ -15,7 +14,11 @@ public class Capsica extends PPlant{
     
     @Override
     void grow() {
-        age+=1;
+        if (growth<=0){
+            growth=0;
+            return;
+        }
+        growth = growth-1;
     }
     
     public String toString(){
@@ -26,7 +29,7 @@ public class Capsica extends PPlant{
     public String Status(){
         String str= super.Status();
         str+= "Type: " + Type.CAPSICA.getName();
-        str+= "\nDays Until Harvestable: " + (getGrowth()-age);
+        str+= "\nDays Until Harvestable: " + (getGrowth());
         str+= "\nResisentance Type: " + Ability.BUG.getName() ;
         return str;
     }

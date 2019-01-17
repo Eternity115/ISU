@@ -5,7 +5,7 @@ public class SPTuber extends Tuber{
     public SPTuber() {
         super();
         res=Ability.COLD;
-        bonus=2;
+        bonus=1.25;
     }
     
     public SPTuber(double c, int gr, Ability r, double bon) {
@@ -16,6 +16,11 @@ public class SPTuber extends Tuber{
     public String toString(){
         String str="Sweet Potato";
         return str;
+    }
+    
+    //Exclusive method
+    public double getBonus(){
+        return bonus;
     }
     
     public String Status(){

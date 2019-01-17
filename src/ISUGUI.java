@@ -25,19 +25,7 @@ public class ISUGUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblmon = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        lblday = new javax.swing.JLabel();
         btnstat = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -53,18 +41,9 @@ public class ISUGUI extends javax.swing.JFrame {
         mnujpep = new javax.swing.JMenuItem();
         mnucare = new javax.swing.JMenu();
         mnusell = new javax.swing.JMenuItem();
-        mnuhar = new javax.swing.JMenuItem();
         mnuwat = new javax.swing.JMenuItem();
         mnufer = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        mnust = new javax.swing.JMenuItem();
-        mnuss = new javax.swing.JMenuItem();
-        mnusc = new javax.swing.JMenuItem();
-        mnuall = new javax.swing.JMenuItem();
+        mnuhis = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,9 +65,9 @@ public class ISUGUI extends javax.swing.JFrame {
         lblmon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblmon.setText("$100.00");
 
-        jLabel4.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("0");
+        lblday.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        lblday.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblday.setText("1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -101,8 +80,8 @@ public class ISUGUI extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblmon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblmon, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addComponent(lblday, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -115,99 +94,7 @@ public class ISUGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel5.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        jLabel5.setText("Plants Harvested");
-
-        jLabel6.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
-        jLabel6.setText("Potato:");
-
-        jLabel7.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
-        jLabel7.setText("Sweet Potato:");
-
-        jLabel8.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
-        jLabel8.setText("Corn:");
-
-        jLabel9.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
-        jLabel9.setText("Pepper:");
-
-        jLabel10.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
-        jLabel10.setText("Jalapeño:");
-
-        jLabel13.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("0");
-
-        jLabel14.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("0");
-
-        jLabel15.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("0");
-
-        jLabel16.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("0");
-
-        jLabel17.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("0");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel17))
+                    .addComponent(lblday))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -240,7 +127,7 @@ public class ISUGUI extends javax.swing.JFrame {
         jMenu5.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
 
         mnupot.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        mnupot.setText("Potato");
+        mnupot.setText("Potato - $5");
         mnupot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnupotActionPerformed(evt);
@@ -249,7 +136,7 @@ public class ISUGUI extends javax.swing.JFrame {
         jMenu5.add(mnupot);
 
         mnuspot.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        mnuspot.setText("Sweet Potato");
+        mnuspot.setText("Sweet Potato - $5");
         mnuspot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuspotActionPerformed(evt);
@@ -262,7 +149,7 @@ public class ISUGUI extends javax.swing.JFrame {
         mnustalk.setText("Stalk");
         mnustalk.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
 
-        mnucorn.setText("Corn");
+        mnucorn.setText("Corn - $12");
         mnucorn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnucornActionPerformed(evt);
@@ -275,7 +162,7 @@ public class ISUGUI extends javax.swing.JFrame {
         jMenu7.setText("Capsica");
         jMenu7.setFont(new java.awt.Font("Nirmala UI", 1, 12)); // NOI18N
 
-        mnupep.setText("Pepper");
+        mnupep.setText("Pepper - $8");
         mnupep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnupepActionPerformed(evt);
@@ -283,7 +170,7 @@ public class ISUGUI extends javax.swing.JFrame {
         });
         jMenu7.add(mnupep);
 
-        mnujpep.setText("Jalapeño");
+        mnujpep.setText("Jalapeño - $8");
         mnujpep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnujpepActionPerformed(evt);
@@ -299,7 +186,7 @@ public class ISUGUI extends javax.swing.JFrame {
         mnucare.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
 
         mnusell.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        mnusell.setText("Sell");
+        mnusell.setText("Harvest (+$$)");
         mnusell.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnusellActionPerformed(evt);
@@ -307,68 +194,29 @@ public class ISUGUI extends javax.swing.JFrame {
         });
         mnucare.add(mnusell);
 
-        mnuhar.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        mnuhar.setText("Harvest");
-        mnuhar.addActionListener(new java.awt.event.ActionListener() {
+        mnuwat.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
+        mnuwat.setText("Water - $0");
+        mnuwat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuharActionPerformed(evt);
+                mnuwatActionPerformed(evt);
             }
         });
-        mnucare.add(mnuhar);
-
-        mnuwat.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        mnuwat.setText("Water");
         mnucare.add(mnuwat);
 
         mnufer.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        mnufer.setText("Fertilize");
+        mnufer.setText("Fertilize - $2");
+        mnufer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuferActionPerformed(evt);
+            }
+        });
         mnucare.add(mnufer);
 
         jMenuBar1.add(mnucare);
 
-        jMenu4.setText("Food");
-        jMenu4.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-
-        jMenuItem13.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem13.setText("Shepard's Pie (Corn, Potato)                                                       |$40");
-        jMenu4.add(jMenuItem13);
-
-        jMenuItem15.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem15.setText("Salsa (Peppers, Jalapeño)                                                             |$50");
-        jMenu4.add(jMenuItem15);
-
-        jMenuItem16.setFont(new java.awt.Font("Nirmala UI", 0, 12)); // NOI18N
-        jMenuItem16.setText("Stew (Potato, Sweet Potato, Corn, Pepper, Jalapeño)              |$100");
-        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem16ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem16);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenu3.setText("Sort");
-        jMenu3.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-
-        mnust.setText("Tuber");
-        jMenu3.add(mnust);
-
-        mnuss.setText("Stalk");
-        jMenu3.add(mnuss);
-
-        mnusc.setText("Capsica");
-        mnusc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuscActionPerformed(evt);
-            }
-        });
-        jMenu3.add(mnusc);
-
-        mnuall.setText("All");
-        jMenu3.add(mnuall);
-
-        jMenuBar1.add(jMenu3);
+        mnuhis.setText("History");
+        mnuhis.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+        jMenuBar1.add(mnuhis);
 
         setJMenuBar(jMenuBar1);
 
@@ -377,37 +225,36 @@ public class ISUGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(btnstat)))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnstat)
+                                .addGap(68, 68, 68))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnstat)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnstat)
+                        .addGap(33, 33, 33)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -420,6 +267,8 @@ public class ISUGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "You do not have enough money");
             return;
         }
+        temp.addDay();
+        lblday.setText("" + temp.getDay());
         Plantlist.addElement(temp.toString());
         bought.add(temp);
         ListThing.setModel(Plantlist);
@@ -434,6 +283,8 @@ public class ISUGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "You do not have enough money");
             return;
         }
+        temp.addDay();
+        lblday.setText("" + temp.getDay());
         Plantlist.addElement(temp.toString());
         bought.add(temp);
         ListThing.setModel(Plantlist);
@@ -441,21 +292,9 @@ public class ISUGUI extends javax.swing.JFrame {
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
     }//GEN-LAST:event_mnucornActionPerformed
 
-    private void mnuharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuharActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuharActionPerformed
-
-    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem16ActionPerformed
-
     private void mnuexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuexitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_mnuexitActionPerformed
-
-    private void mnuscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuscActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuscActionPerformed
 
     private void mnuspotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuspotActionPerformed
         //Adds a new Sweet Potato to list
@@ -464,6 +303,8 @@ public class ISUGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "You do not have enough money");
             return;
         }
+        temp.addDay();
+        lblday.setText("" + temp.getDay());
         Plantlist.addElement(temp.toString());
         bought.add(temp);
         ListThing.setModel(Plantlist);
@@ -478,6 +319,8 @@ public class ISUGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "You do not have enough money");
             return;
         }
+        temp.addDay();
+        lblday.setText("" + temp.getDay());
         Plantlist.addElement(temp.toString());
         bought.add(temp);
         ListThing.setModel(Plantlist);
@@ -492,6 +335,8 @@ public class ISUGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "You do not have enough money");
             return;
         }
+        temp.addDay();
+        lblday.setText("" + temp.getDay());
         Plantlist.addElement(temp.toString());
         bought.add(temp);
         ListThing.setModel(Plantlist);
@@ -517,7 +362,60 @@ public class ISUGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Select a plant to sell");
             return;
         }
+        PPlant temp = bought.get(sel);
+        if (temp.getGrowth()!=0){
+            JOptionPane.showMessageDialog(this, "Plant can not be sold yet ("+ temp.getGrowth()+" days left)\nTry:\n - Watering\n - Fertilizing");
+            return;
+        }
+        temp.addDay();
+        lblday.setText("" + temp.getDay());
+        double add = temp.getCost();
+        double bonus=0;
+        if (temp instanceof JCapsica){
+            bonus=((JCapsica)temp).getBonus();
+        }
+        if (temp instanceof SPTuber){
+            bonus=((SPTuber)temp).getBonus();
+        }
+        temp.increase((add*2)*bonus);
+        lblmon.setText(String.format("$%.2f",temp.getMoney()));
+        Plantlist.removeElementAt(sel);       
     }//GEN-LAST:event_mnusellActionPerformed
+
+    private void mnuwatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuwatActionPerformed
+        int wat = ListThing.getSelectedIndex();
+        if (wat == -1) {
+            JOptionPane.showMessageDialog(this, "Select a plant to water");
+            return;
+        }
+        PPlant temp = bought.get(wat);
+        if(temp.getGrowth()==0){
+            JOptionPane.showMessageDialog(this, "Plant is ready to harvest");
+            return;
+        }
+        temp.grow();
+    }//GEN-LAST:event_mnuwatActionPerformed
+
+    private void mnuferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuferActionPerformed
+        int fer = ListThing.getSelectedIndex();
+        if (fer == -1) {
+            JOptionPane.showMessageDialog(this, "Select a plant to fertilize");
+            return;
+        }
+        PPlant temp = bought.get(fer);
+        if (temp.getMoney()<2){
+            JOptionPane.showMessageDialog(this, "You do not have enough money");
+            return;
+        }
+        if(temp.getGrowth()==0){
+            JOptionPane.showMessageDialog(this, "Plant is ready to harvest");
+            return;
+        }
+        temp.decrease(2);
+        lblmon.setText(String.format("$%.2f",temp.getMoney()));
+        temp.grow();
+        temp.grow();
+    }//GEN-LAST:event_mnuferActionPerformed
 
     /**
      * @param args the command line arguments
@@ -558,48 +456,27 @@ public class ISUGUI extends javax.swing.JFrame {
     private javax.swing.JList<String> ListThing;
     private javax.swing.JButton btnstat;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblday;
     private javax.swing.JLabel lblmon;
-    private javax.swing.JMenuItem mnuall;
     private javax.swing.JMenu mnucare;
     private javax.swing.JMenuItem mnucorn;
     private javax.swing.JMenuItem mnuexit;
     private javax.swing.JMenuItem mnufer;
-    private javax.swing.JMenuItem mnuhar;
+    private javax.swing.JMenu mnuhis;
     private javax.swing.JMenuItem mnujpep;
     private javax.swing.JMenuItem mnupep;
     private javax.swing.JMenuItem mnupot;
-    private javax.swing.JMenuItem mnusc;
     private javax.swing.JMenuItem mnusell;
     private javax.swing.JMenuItem mnuspot;
-    private javax.swing.JMenuItem mnuss;
-    private javax.swing.JMenuItem mnust;
     private javax.swing.JMenu mnustalk;
     private javax.swing.JMenuItem mnuwat;
     // End of variables declaration//GEN-END:variables

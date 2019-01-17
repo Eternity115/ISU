@@ -3,11 +3,11 @@ abstract public class PPlant {
     protected double cost;
     protected Type type; //Enum
     protected int growth; //time in days
-    private static int time;
+    private static int daynum=1; //what day you are on
     private static double money=100;
     
     public PPlant(Type type, double c, int gr){
-        type = type;
+        this.type = type;
         cost=c;
         growth = gr;
     }
@@ -27,30 +27,28 @@ abstract public class PPlant {
     bugSpell();
     */
 
-    
-    public final void plant(){
-        //ADD PLANT TO LIST
-        time+=1;
+    /*
+    Used When:
+    - planted
+    - sold
+    */
+    public static void addDay(){
+        daynum+=1;
     }
     
     public final int getGrowth(){
         return growth;
     }
     
-    public final void age(){
-        growth = growth-1;
-    }
-    
-    
-    public static int getTime(){
-        return time;
+    public static int getDay(){
+        return daynum;
     }
     
     public static double getMoney(){
         return money;
     }
     
-    public double getCost(){
+    public final double getCost(){
         return cost;
     }
     
@@ -59,7 +57,6 @@ abstract public class PPlant {
     }
     
     public static void increase(double rev){
-        
         money = money+rev;
     }
     

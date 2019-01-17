@@ -1,6 +1,6 @@
 //regular Potato
 public class Tuber extends PPlant{
-    protected int age=0; //how many days you have had plant
+    
     protected Ability res;
     protected String name= "Potato";
     
@@ -19,7 +19,11 @@ public class Tuber extends PPlant{
     
     @Override
     void grow() {
-        age+=1;
+        if (growth<=0){
+            growth=0;
+            return;
+        }
+        growth = growth-1;
     }
     
     public String toString(){
@@ -30,7 +34,7 @@ public class Tuber extends PPlant{
     public String Status(){
         String str= super.Status();
         str+= "Type: " + Type.TUBER.getName();
-        str+= "\nDays Until Harvestable: " + (getGrowth()-age);
+        str+= "\nDays Until Harvestable: " + (getGrowth());
         str+= "\nResisentance Type: " + Ability.COLD.getName() ;
         return str;
     }

@@ -5,7 +5,7 @@ public class JCapsica extends Capsica{
     public JCapsica() {
         super();
         res=Ability.BUG;
-        bonus=4;
+        bonus=1.5;
     }
     
     public JCapsica(double c, int gr, Ability r, double bon) {
@@ -16,6 +16,11 @@ public class JCapsica extends Capsica{
     public String toString(){
         String str="Jalapeño";
         return str;
+    }
+    
+    //Exclusive Method
+    public double getBonus(){
+        return bonus;
     }
     
     public String Status(){
