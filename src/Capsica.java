@@ -21,6 +21,11 @@ public class Capsica extends PPlant{
         growth = growth-1;
     }
     
+    //Exclusive method
+    public Ability getRes(){
+        return res;
+    }
+    
     public String toString(){
         String str="Pepper";
         return str;

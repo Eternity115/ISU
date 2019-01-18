@@ -4,7 +4,6 @@ public class SPTuber extends Tuber{
     
     public SPTuber() {
         super();
-        res=Ability.COLD;
         bonus=1.25;
     }
     

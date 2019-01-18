@@ -1,8 +1,5 @@
 
 /*
-Fix HISTORY code
-- Get it to print off the top of the stack, 1 by 1
-- Maybe add day sold to it
 Add exclusive Resistence methods
 - Add method with number
 - Every 10th day have it randomly choose a disease
@@ -26,6 +23,46 @@ public class ISUGUI extends javax.swing.JFrame {
         initComponents();
     }
 
+    //uses a random number to decide what plant to kill
+    public void resistenceTime(){
+        double num = Math.random();
+        Ability resist = Ability.BUG;
+        if (num <=0.4){
+            //if resistance type is for bug, plant is safe
+            resist = Ability.BUG;
+            for (PPlant pPlant : bought) {
+                if (pPlant instanceof Capsica == false){
+                    int gone = bought.indexOf(pPlant);
+                    JOptionPane.showMessageDialog(this, "OH NO\n One of your " + bought.get(gone).toString() +" got infested with "+ resist.getName() 
+                            + ".\n" + bought.get(gone).toString() + " didn't survive!\nAll profit lost!");
+                    bought.remove(gone);
+                    Plantlist.removeElementAt(gone); 
+                    return;
+                }
+            }
+        }
+        else{
+           //if resistance type is for cold, plant is safe
+           resist = Ability.COLD;
+           for (PPlant pPlant : bought) {
+                if (pPlant instanceof Tuber == false){
+                    int gone = bought.indexOf(pPlant);
+                    JOptionPane.showMessageDialog(this, "OH NO\n The weather got "+ resist.getName() 
+                            + ".\n" + bought.get(gone).toString() + " didn't survive!\nAll profit lost!");
+                    bought.remove(gone);
+                    Plantlist.removeElementAt(gone); 
+                    return;
+                }
+            }
+        } 
+    }
+    
+    public void resCheck(){
+        PPlant temp = new Tuber();
+        if (temp.getDay()%10==0){
+            resistenceTime();
+        }
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -297,6 +334,7 @@ public class ISUGUI extends javax.swing.JFrame {
         ListThing.setModel(Plantlist);
         temp.decrease(temp.getCost());
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
+        resCheck();
     }//GEN-LAST:event_mnupotActionPerformed
 
     private void mnucornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnucornActionPerformed
@@ -313,6 +351,7 @@ public class ISUGUI extends javax.swing.JFrame {
         ListThing.setModel(Plantlist);
         temp.decrease(temp.getCost());
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
+        resCheck();
     }//GEN-LAST:event_mnucornActionPerformed
 
     private void mnuexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuexitActionPerformed
@@ -333,6 +372,7 @@ public class ISUGUI extends javax.swing.JFrame {
         ListThing.setModel(Plantlist);
         temp.decrease(temp.getCost());
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
+        resCheck();
     }//GEN-LAST:event_mnuspotActionPerformed
 
     private void mnupepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnupepActionPerformed
@@ -349,6 +389,7 @@ public class ISUGUI extends javax.swing.JFrame {
         ListThing.setModel(Plantlist);
         temp.decrease(temp.getCost());
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
+        resCheck();
     }//GEN-LAST:event_mnupepActionPerformed
 
     private void mnujpepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnujpepActionPerformed
@@ -365,6 +406,7 @@ public class ISUGUI extends javax.swing.JFrame {
         ListThing.setModel(Plantlist);
         temp.decrease(temp.getCost());
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
+        resCheck();
     }//GEN-LAST:event_mnujpepActionPerformed
 
     private void btnstatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstatActionPerformed
@@ -390,6 +432,13 @@ public class ISUGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Plant can not be sold yet ("+ temp.getGrowth()+" days left)\nTry:\n - Watering\n - Fertilizing");
             return;
         }
+        
+        //if it is corn, 10% chance to become popcorn ( cost x 2)
+        boolean popcorn = Math.random() < 0.1; 
+        if (popcorn && temp instanceof Stalk){
+            ((Stalk)temp).popcorn(); 
+            JOptionPane.showMessageDialog(this, "Your corn plant overheated!!!\n Popcorn was produced\n sell price was doubled");
+        }
         temp.addDay();
         lblday.setText("" + temp.getDay());
         double add = temp.getCost();
@@ -404,7 +453,8 @@ public class ISUGUI extends javax.swing.JFrame {
         bought.remove(sel);
         temp.increase((add*2)*bonus);
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
-        Plantlist.removeElementAt(sel);       
+        Plantlist.removeElementAt(sel);
+        resCheck();
     }//GEN-LAST:event_mnusellActionPerformed
 
     private void mnuwatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuwatActionPerformed
@@ -444,9 +494,8 @@ public class ISUGUI extends javax.swing.JFrame {
 
     private void mnuhisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuhisActionPerformed
         String history = "History\n";
-        for (int i = 0; i < sold.size(); i++) {
-            //FIX THIS CODE
-            history += sold.toString() + "\n";
+        for (PPlant pPlant : sold) {
+            history += pPlant.toString() + "\n";
         }
         if (sold.size()==0)history += "You have harvested no plants";
         JOptionPane.showMessageDialog(this, history);

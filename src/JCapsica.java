@@ -4,7 +4,6 @@ public class JCapsica extends Capsica{
     
     public JCapsica() {
         super();
-        res=Ability.BUG;
         bonus=1.5;
     }
     

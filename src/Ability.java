@@ -1,6 +1,6 @@
 //What Each Type of Plant is resistent to
 public enum Ability {
-    COLD("Cold"), DISEASE("Disease"), BUG("Bug");
+    COLD("Cold"), BUG("Bugs");
     final String name;
     
     private Ability(String name){
