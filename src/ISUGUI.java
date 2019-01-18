@@ -1,6 +1,17 @@
 
+/*
+Fix HISTORY code
+- Get it to print off the top of the stack, 1 by 1
+- Maybe add day sold to it
+Add exclusive Resistence methods
+- Add method with number
+- Every 10th day have it randomly choose a disease
+- Kill one plant
+*/
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -8,6 +19,8 @@ import javax.swing.JOptionPane;
 public class ISUGUI extends javax.swing.JFrame {
     List<PPlant> bought = new ArrayList<>();
     DefaultListModel<String> Plantlist = new DefaultListModel<>();
+    //List<PPlant> sold = new ArrayList<>();
+    Stack<PPlant> sold = new Stack();
     
     public ISUGUI() {
         initComponents();
@@ -43,7 +56,8 @@ public class ISUGUI extends javax.swing.JFrame {
         mnusell = new javax.swing.JMenuItem();
         mnuwat = new javax.swing.JMenuItem();
         mnufer = new javax.swing.JMenuItem();
-        mnuhis = new javax.swing.JMenu();
+        mnuHistory = new javax.swing.JMenu();
+        mnuhis = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -214,9 +228,18 @@ public class ISUGUI extends javax.swing.JFrame {
 
         jMenuBar1.add(mnucare);
 
-        mnuhis.setText("History");
-        mnuhis.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
-        jMenuBar1.add(mnuhis);
+        mnuHistory.setText("History");
+        mnuHistory.setFont(new java.awt.Font("Nirmala UI", 1, 14)); // NOI18N
+
+        mnuhis.setText("See History");
+        mnuhis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuhisActionPerformed(evt);
+            }
+        });
+        mnuHistory.add(mnuhis);
+
+        jMenuBar1.add(mnuHistory);
 
         setJMenuBar(jMenuBar1);
 
@@ -377,6 +400,8 @@ public class ISUGUI extends javax.swing.JFrame {
         if (temp instanceof SPTuber){
             bonus=((SPTuber)temp).getBonus();
         }
+        sold.add(temp);
+        bought.remove(sel);
         temp.increase((add*2)*bonus);
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
         Plantlist.removeElementAt(sel);       
@@ -416,6 +441,16 @@ public class ISUGUI extends javax.swing.JFrame {
         temp.grow();
         temp.grow();
     }//GEN-LAST:event_mnuferActionPerformed
+
+    private void mnuhisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuhisActionPerformed
+        String history = "History\n";
+        for (int i = 0; i < sold.size(); i++) {
+            //FIX THIS CODE
+            history += sold.toString() + "\n";
+        }
+        if (sold.size()==0)history += "You have harvested no plants";
+        JOptionPane.showMessageDialog(this, history);
+    }//GEN-LAST:event_mnuhisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -467,11 +502,12 @@ public class ISUGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblday;
     private javax.swing.JLabel lblmon;
+    private javax.swing.JMenu mnuHistory;
     private javax.swing.JMenu mnucare;
     private javax.swing.JMenuItem mnucorn;
     private javax.swing.JMenuItem mnuexit;
     private javax.swing.JMenuItem mnufer;
-    private javax.swing.JMenu mnuhis;
+    private javax.swing.JMenuItem mnuhis;
     private javax.swing.JMenuItem mnujpep;
     private javax.swing.JMenuItem mnupep;
     private javax.swing.JMenuItem mnupot;

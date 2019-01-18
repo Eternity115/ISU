@@ -2,7 +2,6 @@
 public class Tuber extends PPlant{
     
     protected Ability res;
-    protected String name= "Potato";
     
     public Tuber() {
         super(Type.TUBER, 5, 10);
@@ -12,9 +11,6 @@ public class Tuber extends PPlant{
     public Tuber(double c, int gr, Ability r) {
         super(Type.TUBER, c, gr);
         res=r;
-    }
-    public String getSName(){
-        return name;
     }
     
     @Override
