@@ -3,11 +3,13 @@ public class Tuber extends PPlant{
     
     protected Ability res; //When cold weather strikes, plant will be okay
     
+    //constructor
     public Tuber() {
         super(Type.TUBER, 5, 10);
         res= Ability.COLD;
     }
     
+    //constructor
     public Tuber(double c, int gr, Ability r) {
         super(Type.TUBER, c, gr);
         res=r;
@@ -21,7 +23,7 @@ public class Tuber extends PPlant{
     //ages by 1 day
     @Override
     void grow() {
-        if (growth<=0){
+        if (growth<=0){//unless plant is already mature
             growth=0;
             return;
         }

@@ -1,10 +1,4 @@
 
-/*
-Add exclusive Resistence methods
-- Add method with number
-- Every 10th day have it randomly choose a disease
-- Kill one plant
-*/
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +8,11 @@ import javax.swing.JOptionPane;
 
 
 public class ISUGUI extends javax.swing.JFrame {
+    //List of plants bought
     List<PPlant> bought = new ArrayList<>();
+    //names of plants list to display
     DefaultListModel<String> Plantlist = new DefaultListModel<>();
-    //List<PPlant> sold = new ArrayList<>();
+    //for history button
     Stack<PPlant> sold = new Stack();
     
     public ISUGUI() {
@@ -31,12 +27,14 @@ public class ISUGUI extends javax.swing.JFrame {
             //if resistance type is for bug, plant is safe
             resist = Ability.BUG;
             for (PPlant pPlant : bought) {
+                //Capsica's have Bug resistence
                 if (pPlant instanceof Capsica == false){
-                    int gone = bought.indexOf(pPlant);
+                    int gone = bought.indexOf(pPlant); //which plant is killed
+                    //tell user what happened
                     JOptionPane.showMessageDialog(this, "OH NO\n One of your " + bought.get(gone).toString() +" got infested with "+ resist.getName() 
                             + ".\n" + bought.get(gone).toString() + " didn't survive!\nAll profit lost!");
-                    bought.remove(gone);
-                    Plantlist.removeElementAt(gone); 
+                    bought.remove(gone); //remove dead plant
+                    Plantlist.removeElementAt(gone); //remove from display
                     return;
                 }
             }
@@ -45,21 +43,24 @@ public class ISUGUI extends javax.swing.JFrame {
            //if resistance type is for cold, plant is safe
            resist = Ability.COLD;
            for (PPlant pPlant : bought) {
+               //tubers are resistent to cold
                 if (pPlant instanceof Tuber == false){
-                    int gone = bought.indexOf(pPlant);
+                    int gone = bought.indexOf(pPlant); //which plant is gone
+                    //tell user what happened
                     JOptionPane.showMessageDialog(this, "OH NO\n The weather got "+ resist.getName() 
                             + ".\n" + bought.get(gone).toString() + " didn't survive!\nAll profit lost!");
-                    bought.remove(gone);
-                    Plantlist.removeElementAt(gone); 
+                    bought.remove(gone); //remove from list
+                    Plantlist.removeElementAt(gone); //remove from displayed list
                     return;
                 }
             }
         } 
     }
     
+    //check if its been 10 days since last spell, if yes, run resistence method
     public void resCheck(){
         PPlant temp = new Tuber();
-        if (temp.getDay()%10==0){
+        if (temp.getDay()%10==0){ //if it a tenth day
             resistenceTime();
         }
     }
@@ -323,35 +324,45 @@ public class ISUGUI extends javax.swing.JFrame {
     private void mnupotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnupotActionPerformed
         //adds a new potato to list
         PPlant temp = new Tuber();
+        //if user is poor, tell them
         if (temp.getMoney()<temp.getCost()){
             JOptionPane.showMessageDialog(this, "You do not have enough money");
             return;
         }
+        //increase what day they are on & update label
         temp.addDay();
         lblday.setText("" + temp.getDay());
+        //add plant to lists
         Plantlist.addElement(temp.toString());
         bought.add(temp);
+        //update list display
         ListThing.setModel(Plantlist);
+        //subtract money from cost & update label
         temp.decrease(temp.getCost());
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
-        resCheck();
+        resCheck(); //check if its a 10th day
     }//GEN-LAST:event_mnupotActionPerformed
 
     private void mnucornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnucornActionPerformed
         //Adds a new corn to list
         PPlant temp = new Stalk();
+        //if user is poor, tell them
         if (temp.getMoney()<temp.getCost()){
             JOptionPane.showMessageDialog(this, "You do not have enough money");
             return;
         }
+        //increase what day they are on & update label
         temp.addDay();
         lblday.setText("" + temp.getDay());
+        //add plant to lists
         Plantlist.addElement(temp.toString());
         bought.add(temp);
+        //update list display
         ListThing.setModel(Plantlist);
+        //subtract money from cost & update label
         temp.decrease(temp.getCost());
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
-        resCheck();
+        resCheck();//check if its a 10th day
     }//GEN-LAST:event_mnucornActionPerformed
 
     private void mnuexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuexitActionPerformed
@@ -361,73 +372,95 @@ public class ISUGUI extends javax.swing.JFrame {
     private void mnuspotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuspotActionPerformed
         //Adds a new Sweet Potato to list
         PPlant temp = new SPTuber();
+        //if user is poor, tell them
         if (temp.getMoney()<temp.getCost()){
             JOptionPane.showMessageDialog(this, "You do not have enough money");
             return;
         }
+        //increase what day they are on & update label
         temp.addDay();
         lblday.setText("" + temp.getDay());
+        //add plant to lists
         Plantlist.addElement(temp.toString());
         bought.add(temp);
         ListThing.setModel(Plantlist);
+        //subtract money from cost & update label
         temp.decrease(temp.getCost());
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
-        resCheck();
+        resCheck();//check if its a 10th day
     }//GEN-LAST:event_mnuspotActionPerformed
 
     private void mnupepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnupepActionPerformed
         //Adds a new pepper to list
         PPlant temp = new Capsica();
+        //if user is poor, tell them
         if (temp.getMoney()<temp.getCost()){
             JOptionPane.showMessageDialog(this, "You do not have enough money");
             return;
         }
+        //increase what day they are on & update label
         temp.addDay();
         lblday.setText("" + temp.getDay());
+        //add plant to lists
         Plantlist.addElement(temp.toString());
         bought.add(temp);
+        //update list display
         ListThing.setModel(Plantlist);
+        //subtract money from cost & update label
         temp.decrease(temp.getCost());
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
-        resCheck();
+        resCheck();//check if its a 10th day
     }//GEN-LAST:event_mnupepActionPerformed
 
     private void mnujpepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnujpepActionPerformed
         //Adds a new jalapeño to list
         PPlant temp = new JCapsica();
+        //if user is poor, tell them
         if (temp.getMoney()<temp.getCost()){
             JOptionPane.showMessageDialog(this, "You do not have enough money");
             return;
         }
+        //increase what day they are on & update label
         temp.addDay();
         lblday.setText("" + temp.getDay());
+        //add plant to lists
         Plantlist.addElement(temp.toString());
         bought.add(temp);
+        //update list display
         ListThing.setModel(Plantlist);
+        //subtract money from cost & update label
         temp.decrease(temp.getCost());
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
-        resCheck();
+        resCheck();//check if its a 10th day
     }//GEN-LAST:event_mnujpepActionPerformed
 
     private void btnstatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstatActionPerformed
+        //find which item you want the statis of
         int ss = ListThing.getSelectedIndex();
+        //check if anything is selected
         if (ss == -1) {
             JOptionPane.showMessageDialog(this, "Select a plant to see status");
             return;
         }
+        //make a string and add the plant's status
         String stats="";
         stats = bought.get(ss).Status();
+        //display to user
         JOptionPane.showMessageDialog(this, stats);
         
     }//GEN-LAST:event_btnstatActionPerformed
 
     private void mnusellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnusellActionPerformed
+        //find which item you want to sell
         int sel = ListThing.getSelectedIndex();
+        //check if anything is selected
         if (sel == -1) {
             JOptionPane.showMessageDialog(this, "Select a plant to sell");
             return;
         }
+        //make a reference object of the one you want to sell
         PPlant temp = bought.get(sel);
+        //check if it is mature enough to sell, if not display message
         if (temp.getGrowth()!=0){
             JOptionPane.showMessageDialog(this, "Plant can not be sold yet ("+ temp.getGrowth()+" days left)\nTry:\n - Watering\n - Fertilizing");
             return;
@@ -436,68 +469,90 @@ public class ISUGUI extends javax.swing.JFrame {
         //if it is corn, 10% chance to become popcorn ( cost x 2)
         boolean popcorn = Math.random() < 0.1; 
         if (popcorn && temp instanceof Stalk){
+            //popcorn method gives you more money
             ((Stalk)temp).popcorn(); 
             JOptionPane.showMessageDialog(this, "Your corn plant overheated!!!\n Popcorn was produced\n sell price was doubled");
         }
+        //add a day and update label
         temp.addDay();
         lblday.setText("" + temp.getDay());
+        // get the original cost amount
         double add = temp.getCost();
         double bonus=0;
+        //if it has a bonus, get the number
         if (temp instanceof JCapsica){
             bonus=((JCapsica)temp).getBonus();
         }
         if (temp instanceof SPTuber){
             bonus=((SPTuber)temp).getBonus();
         }
+        //add to sold list and remove from bought list
         sold.add(temp);
         bought.remove(sel);
+        //add money made to money & update label
         temp.increase((add*2)*bonus);
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
-        Plantlist.removeElementAt(sel);
-        resCheck();
+        Plantlist.removeElementAt(sel); //remove from list
+        resCheck(); //check if its tenth day
     }//GEN-LAST:event_mnusellActionPerformed
 
     private void mnuwatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuwatActionPerformed
+        //check which item is selected
         int wat = ListThing.getSelectedIndex();
+        //if nothing is selected, tell user
         if (wat == -1) {
             JOptionPane.showMessageDialog(this, "Select a plant to water");
             return;
         }
+        //reference the selected plant
         PPlant temp = bought.get(wat);
+        //see is plant is already mature
         if(temp.getGrowth()==0){
             JOptionPane.showMessageDialog(this, "Plant is ready to harvest");
             return;
         }
+        //age plant once
         temp.grow();
     }//GEN-LAST:event_mnuwatActionPerformed
 
     private void mnuferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuferActionPerformed
+        //see which plant you want to fertilize
         int fer = ListThing.getSelectedIndex();
+        //tell user if nothing is selected 
         if (fer == -1) {
             JOptionPane.showMessageDialog(this, "Select a plant to fertilize");
             return;
         }
+        //make a reference to plant
         PPlant temp = bought.get(fer);
+        //see if user has enough money
         if (temp.getMoney()<2){
             JOptionPane.showMessageDialog(this, "You do not have enough money");
             return;
         }
+        //see if plant is mature
         if(temp.getGrowth()==0){
             JOptionPane.showMessageDialog(this, "Plant is ready to harvest");
             return;
         }
+        //subract cost and update money label
         temp.decrease(2);
         lblmon.setText(String.format("$%.2f",temp.getMoney()));
+        //grow plant twice
         temp.grow();
         temp.grow();
     }//GEN-LAST:event_mnuferActionPerformed
 
     private void mnuhisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuhisActionPerformed
+        //Make a string to display previously sold plants
         String history = "History\n";
+        //go through stack and print plant names
         for (PPlant pPlant : sold) {
             history += pPlant.toString() + "\n";
         }
+        //if no plants have been sold, tell user
         if (sold.size()==0)history += "You have harvested no plants";
+        //display history string
         JOptionPane.showMessageDialog(this, history);
     }//GEN-LAST:event_mnuhisActionPerformed
 
